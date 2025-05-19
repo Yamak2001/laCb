@@ -44,19 +44,19 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Create a monitoring instance
-request_monitor = get_request_monitor(store_limit=200)
+# # Create a monitoring instance
+# request_monitor = get_request_monitor(store_limit=200)
 
-# Add monitoring middleware with the monitor instance
-app.add_middleware(MonitoringMiddleware)
+# # Add monitoring middleware with the monitor instance
+# app.add_middleware(MonitoringMiddleware)
 
-# Store the monitor in app.state for access in endpoints
-app.state.request_monitor = request_monitor
+# # Store the monitor in app.state for access in endpoints
+# app.state.request_monitor = request_monitor
 
 # Include routers
 app.include_router(voice_profiles.router)
 app.include_router(audio_processing.router)
-app.include_router(monitoring.router)
+# app.include_router(monitoring.router)
 
 # Mount static files
 app.mount("/data/audio", StaticFiles(directory="data/audio"), name="audio")

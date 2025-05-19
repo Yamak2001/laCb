@@ -139,7 +139,7 @@ class DemucsModel(BaseSeparationModel):
                             # Final try: Fall back to command line
                             logger.info("Will use command-line demucs as fallback")
                             self.use_command_line = True
-                                                        return
+                            return
                 
                 # Move model to device
                 model.to(self.device)

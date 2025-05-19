@@ -96,7 +96,8 @@ class PyannoteSpeakerModel(BaseEmbeddingModel):
         except Exception as e:
             logger.error(f"Failed to load Pyannote embedding model: {e}")
             raise
-        def create_embedding(self, audio_path: str) -> np.ndarray:
+    
+    def create_embedding(self, audio_path: str) -> np.ndarray:
         """Create a speaker embedding from an audio file using Pyannote."""
         # Ensure the model is loaded
         if self.model is None:
