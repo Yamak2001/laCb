@@ -1,30 +1,47 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
-
-node_modules
-dist
-dist-ssr
-*.local
-
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-# Python virtual environments
-venv/
-.venv/
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
 env/
+venv/
 ENV/
-venv/bin/activate.csh
+.venv
+
+# Backup files
+*.bak
+*.bak[0-9]
+*~
+*.swp
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# Data files  
+data/temp/*
+!data/temp/.gitkeep
+data/mixed/*
+!data/mixed/.gitkeep
+data/librimix_samples/
+newlibrimixaudios/
+
+# Model downloads
+models/pretrained/*
+!models/pretrained/.gitkeep
+
+# Database
+*.db
+*.sqlite3
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test artifacts
+test_sample_*.png

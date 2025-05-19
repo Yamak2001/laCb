@@ -1,10 +1,47 @@
-asteroid==0.7.0
+# Core dependencies
 fastapi==0.115.12
-librosa==0.11.0
-numpy==2.2.5
+uvicorn==0.34.2
+python-multipart==0.0.20
 pydantic==2.11.4
-Resemblyzer==0.1.4
-soundfile==0.13.1
 SQLAlchemy==2.0.40
-starlette==0.46.2
+PyMySQL==1.1.1
+
+# Audio processing
+librosa==0.11.0
+soundfile==0.13.1
+numpy==1.24.0
+scipy>=1.7.0
+
+# Deep learning frameworks
 torch==2.7.0
+torchaudio>=2.0.0
+
+# Voice separation models
+asteroid-filterbanks==0.4.0  # For ConvTasNet, DPRNN
+demucs>=4.0.0
+diffq>=0.2.0  # For Demucs quantization
+
+# Voice embedding models
+Resemblyzer==0.1.4
+speechbrain>=1.0.0
+pyannote.audio>=2.1.1
+
+# Voice activity detection
+webrtcvad==2.0.10
+
+# Additional dependencies for specific models
+huggingface-hub>=0.16.0  # For model downloads
+omegaconf>=2.1.0  # For config management
+hydra-core>=1.1.0  # For Demucs
+julius>=0.2.0  # For audio resampling
+einops>=0.6.0  # For tensor operations
+
+# Optional GPU support (install separately if needed)
+# torch[cuda]>=2.0.0
+
+# Development dependencies (optional)
+# pytest>=6.0
+# pytest-cov>=2.0
+# black>=21.0
+# flake8>=3.9
+# mypy>=0.910
