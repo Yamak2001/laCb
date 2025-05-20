@@ -1,4 +1,5 @@
 # models/separation/convtasnet_model.py
+# https://asteroid.readthedocs.io/en/v0.3.3/apidoc/asteroid.models.conv_tasnet.html
 import os
 import numpy as np
 import torch
@@ -11,6 +12,7 @@ from typing import List, Dict, Any
 
 from asteroid.models import ConvTasNet
 from models.base import BaseSeparationModel
+from utils.device_utils import get_available_device, optimize_for_device, get_device_string
 
 # Set up logging
 logger = logging.getLogger(__name__)
@@ -53,15 +55,12 @@ class ConvTasNetModel(BaseSeparationModel):
                     )
                     logger.info("Model loaded successfully!")
                     
-                    # Move model to GPU if available and requested
-                    self.device = torch.device("cuda" if self.use_gpu and torch.cuda.is_available() else "cpu")
-                    if self.device.type == "cuda":
-                        logger.info("Using GPU acceleration")
-                    else:
-                        logger.info("Using CPU for processing")
-                        
-                    model.to(self.device)
-                    model.eval()  # Set model to evaluation mode
+                    # Get the best available device (CPU, CUDA, or MPS)
+                    self.device, device_info = get_available_device(self.use_gpu)
+                    logger.info(f"Using {get_device_string(device_info)}")
+                    
+                    # Optimize the model for the selected device
+                    model = optimize_for_device(model, self.device)
                     
                     self.model = model
                     return
@@ -85,9 +84,13 @@ class ConvTasNetModel(BaseSeparationModel):
             n_channels=128,  # Number of channels in bottleneck
             norm_type="gLN"  # Normalization type
         )
-        self.device = torch.device("cpu")
-        model.to(self.device)
-        model.eval()
+        
+        # Get the best available device for the fallback model
+        self.device, device_info = get_available_device(self.use_gpu)
+        logger.info(f"Using {get_device_string(device_info)} for fallback model")
+        
+        # Optimize the fallback model for the selected device
+        model = optimize_for_device(model, self.device)
         
         logger.info("Created fallback model")
         self.model = model

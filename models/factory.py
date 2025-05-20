@@ -76,12 +76,6 @@ class SeparationModelFactory(ModelFactory):
             from models.separation.convtasnet_model import ConvTasNetModel
             cls.register("convtasnet", ConvTasNetModel)
             
-            # Import Demucs if available
-            try:
-                from models.separation.demucs_model import DemucsModel
-                cls.register("demucs", DemucsModel)
-            except ImportError:
-                logger.warning("Demucs model not available. Skip registration.")
             
             # Import SepFormer if available
             try:
@@ -104,12 +98,6 @@ class SeparationModelFactory(ModelFactory):
             except ImportError:
                 logger.warning("NeMo separation model not available. Skip registration.")
             
-            # Import HDemucs if available
-            try:
-                from models.separation.hdemucs_model import HDemucsModel
-                cls.register("hdemucs", HDemucsModel)
-            except ImportError:
-                logger.warning("HDemucs model not available. Skip registration.")
                 
         except Exception as e:
             logger.error(f"Error registering separation models: {e}")

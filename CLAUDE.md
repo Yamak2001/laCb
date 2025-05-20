@@ -15,7 +15,7 @@ Loud & Clear is a modular voice isolation system that extracts specific voices f
 ### Model System
 - `models/base.py`: Abstract base classes (BaseSeparationModel, BaseEmbeddingModel, BaseVADProcessor)
 - `models/factory.py`: Factory pattern for dynamic model registration and instantiation  
-- Separation models: ConvTasNet, DPRNN, Demucs, SepFormer, HDemucs
+- Separation models: ConvTasNet, DPRNN, SepFormer
 - Embedding models: Resemblyzer, SpeechBrain, ECAPA-TDNN, Pyannote, TitaNet
 - VAD processors: WebRTC VAD, SpeechBrain VAD, Pyannote VAD
 
@@ -38,7 +38,7 @@ chmod +x install_dependencies.sh
 
 # Install specific model dependencies  
 ./install_speechbrain_dependencies.sh
-./install_demucs_dependencies.sh
+# Demucs dependencies removed
 ./install_pyannote_dependencies.sh
 
 # Manual installation
@@ -79,6 +79,8 @@ python init_directories.py
 
 ## Important Considerations
 - Use GPU support by setting `use_gpu=true` in API calls
+  - CUDA is automatically used on NVIDIA GPUs
+  - MPS (Metal Performance Shaders) is automatically used on Apple Silicon Macs
 - Large models require 8GB+ RAM (16GB+ recommended)
 - Pyannote models require Hugging Face authentication
 - FFmpeg is required for audio conversion

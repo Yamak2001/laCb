@@ -4,7 +4,7 @@ Loud & Clear is a modular voice isolation system that extracts specific voices f
 
 ## Features
 
-- **Multiple Voice Separation Models**: ConvTasNet, DPRNN, Demucs, SepFormer, HDemucs
+- **Multiple Voice Separation Models**: ConvTasNet, DPRNN, SepFormer
 - **Voice Embedding Models**: Resemblyzer, SpeechBrain, ECAPA-TDNN, Pyannote, TitaNet
 - **Voice Activity Detection**: WebRTC VAD, SpeechBrain VAD, Pyannote VAD
 - **REST API**: Easy integration with your applications
@@ -57,7 +57,7 @@ pip install -r requirements.txt
 
 # For specific models:
 pip install speechbrain>=1.0.0  # For SpeechBrain models
-pip install demucs>=4.0.0       # For Demucs models
+# Demucs model removed from the project
 pip install asteroid>=0.7.0     # For ConvTasNet and DPRNN models
 pip install pyannote.audio>=2.1.1  # For Pyannote models
 pip install webrtcvad>=2.0.10   # For WebRTC VAD
@@ -129,10 +129,8 @@ curl -X POST "http://localhost:8000/api/audio/process" \
 ### Separation Models
 
 - **ConvTasNet**: Fast, general-purpose separation, good balance of quality and speed
-- **Demucs**: Higher quality for music and speech, but slower
 - **DPRNN**: Good for speech-only content
 - **SepFormer**: Best quality but requires more memory and computation
-- **HDemucs**: Enhanced version of Demucs for music separation
 
 ### Embedding Models
 
@@ -189,7 +187,7 @@ You may need to manually download model files or clear the cache.
 This project uses several open-source deep learning models:
 - [Asteroid](https://github.com/asteroid-team/asteroid) - Audio Source Separation toolkit
 - [SpeechBrain](https://github.com/speechbrain/speechbrain) - Speech processing toolkit
-- [Demucs](https://github.com/facebookresearch/demucs) - Music Source Separation
+- [TorchAudio](https://github.com/pytorch/audio) - Audio processing toolkit
 - [Pyannote.audio](https://github.com/pyannote/pyannote-audio) - Speaker diarization
 - [Resemblyzer](https://github.com/resemble-ai/Resemblyzer) - Voice embedding
 - [WebRTC VAD](https://github.com/wiseman/py-webrtcvad) - Voice activity detection

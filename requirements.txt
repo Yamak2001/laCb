@@ -13,13 +13,11 @@ numpy==1.24.0
 scipy>=1.7.0
 
 # Deep learning frameworks
-torch==2.7.0
+torch>=2.0.0  # 2.0.0+ required for MPS support on Apple Silicon
 torchaudio>=2.0.0
 
 # Voice separation models
 asteroid-filterbanks==0.4.0  # For ConvTasNet, DPRNN
-demucs>=4.0.0
-diffq>=0.2.0  # For Demucs quantization
 
 # Voice embedding models
 Resemblyzer==0.1.4
@@ -32,12 +30,15 @@ webrtcvad==2.0.10
 # Additional dependencies for specific models
 huggingface-hub>=0.16.0  # For model downloads
 omegaconf>=2.1.0  # For config management
-hydra-core>=1.1.0  # For Demucs
-julius>=0.2.0  # For audio resampling
+# hydra-core and julius removed (were for Demucs)
 einops>=0.6.0  # For tensor operations
 
 # Optional GPU support (install separately if needed)
+# For NVIDIA GPUs:
 # torch[cuda]>=2.0.0
+
+# For Apple Silicon Macs:
+# MPS support is included in PyTorch 2.0.0+, no additional packages needed
 
 # Development dependencies (optional)
 # pytest>=6.0

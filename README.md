@@ -4,7 +4,7 @@ Loud & Clear is a modular voice isolation system that extracts specific voices f
 
 ## Features
 
-- **Multiple Voice Separation Models**: ConvTasNet, DPRNN, Demucs, SepFormer, HDemucs
+- **Multiple Voice Separation Models**: ConvTasNet, DPRNN, SepFormer
 - **Voice Embedding Models**: Resemblyzer, SpeechBrain, ECAPA-TDNN, Pyannote, TitaNet
 - **Voice Activity Detection**: WebRTC VAD, SpeechBrain VAD, Pyannote VAD
 - **REST API**: Easy integration with your applications
@@ -16,7 +16,7 @@ Loud & Clear is a modular voice isolation system that extracts specific voices f
 - Python 3.8+ 
 - FFmpeg (for audio conversion)
 - 8GB+ RAM (16GB+ recommended for larger models)
-- CUDA-compatible GPU (optional, for faster processing)
+- CUDA-compatible GPU or Apple Silicon Mac (optional, for faster processing)
 - 5GB+ disk space for models and dependencies
 
 ## Installation
@@ -45,7 +45,11 @@ pip install .     # Install normally
 
 For GPU support:
 ```bash
+# For NVIDIA GPUs (CUDA)
 pip install -e ".[gpu]"
+
+# For Apple Silicon Macs (MPS)
+# PyTorch 2.0+ with MPS support is included in the default installation
 ```
 
 For development:
@@ -121,10 +125,8 @@ curl -X POST "http://localhost:8000/api/audio/process" \
 ### Separation Models
 
 - **ConvTasNet**: Fast, general-purpose separation
-- **Demucs**: Higher quality for music and speech
 - **DPRNN**: Good for speech-only content
 - **SepFormer**: Best quality but requires more memory
-- **HDemucs**: Enhanced version of Demucs
 
 ### Embedding Models
 
@@ -193,6 +195,6 @@ MIT License - see LICENSE file for details.
 This project uses several open-source deep learning models:
 - [Asteroid](https://github.com/asteroid-team/asteroid)
 - [SpeechBrain](https://github.com/speechbrain/speechbrain)
-- [Demucs](https://github.com/facebookresearch/demucs)
+- [TorchAudio](https://github.com/pytorch/audio)
 - [Pyannote.audio](https://github.com/pyannote/pyannote-audio)
 - [Resemblyzer](https://github.com/resemble-ai/Resemblyzer)

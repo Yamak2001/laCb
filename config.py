@@ -40,16 +40,11 @@ DATABASE_URL = "sqlite:///./voice_profiles.db"
 MODEL_CONFIGS = {
     "separation": {
         "convtasnet": {
-            "use_gpu": False,
-            "sample_rate": SAMPLE_RATE
-        },
-        "demucs": {
-            "model_variant": "htdemucs",
-            "use_gpu": False,
+            "use_gpu": True,
             "sample_rate": SAMPLE_RATE
         },
         "sepformer": {
-            "use_gpu": False,
+            "use_gpu": True,
             "sample_rate": SAMPLE_RATE
         }
     },

@@ -40,7 +40,6 @@ def get_fallback_models(model_type: str) -> Dict[str, str]:
         'separation': {
             'sepformer': 'convtasnet',
             'dprnn': 'convtasnet',
-            'hdemucs': 'demucs',
             'nemo': 'convtasnet',
         },
         'embedding': {

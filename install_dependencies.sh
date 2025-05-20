@@ -98,18 +98,7 @@ install_speechbrain() {
     echo
 }
 
-# Function to install Demucs and HDemucs dependencies
-install_demucs() {
-    echo "===== Installing Demucs Dependencies ====="
-    pip install pyyaml
-    pip install dora-search
-    pip install demucs>=4.0.0
-    pip install diffq>=0.2.0
-    pip install julius>=0.2.3
-    pip install torchmetrics>=0.8.0
-    echo "Demucs dependencies installed successfully."
-    echo
-}
+# Demucs installation function removed
 
 # Function to install Pyannote dependencies
 install_pyannote() {
@@ -225,7 +214,7 @@ install_model_files() {
         echo "Copying model files from current directory..."
         # Copy separation models
         [ -f "sepformer_model.py" ] && cp sepformer_model.py models/separation/
-        [ -f "hdemucs_model.py" ] && cp hdemucs_model.py models/separation/
+        # HDemucs model removed
         
         # Copy embedding models
         [ -f "improved-speechbrain-model.py" ] && cp improved-speechbrain-model.py models/embedding/speechbrain_model.py
@@ -255,7 +244,7 @@ main() {
     echo "1. Core dependencies (with specific PyTorch/torchaudio versions)"
     echo "2. FFmpeg (for audio processing)"
     echo "3. SpeechBrain (for voice embedding and VAD)"
-    echo "4. Demucs (for voice separation)"
+    # Demucs removed
     echo "5. Pyannote.audio (for voice detection)"
     echo "6. Asteroid (for other separation models)"
     echo "7. WebRTC VAD (for voice activity detection)"
@@ -274,7 +263,7 @@ main() {
     install_core
     install_ffmpeg
     install_speechbrain
-    install_demucs
+    # Demucs installation removed
     install_pyannote
     install_asteroid
     install_vad

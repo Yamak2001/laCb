@@ -404,9 +404,7 @@ def get_available_models():
         "separation_models": {
             "convtasnet": "ConvTasNet - Fast general-purpose speech separation",
             "dprnn": "DPRNN - Dual-Path RNN for speech separation",
-            "demucs": "Demucs - Facebook AI music source separation",
-            "sepformer": "SepFormer - State-of-the-art separation transformer",
-            "hdemucs": "Hybrid Demucs - Enhanced hybrid music separation"
+            "sepformer": "SepFormer - State-of-the-art separation transformer"
         },
         "embedding_models": {
             "resemblyzer": "Resemblyzer - Lightweight voice embedding",

@@ -38,10 +38,10 @@ model_paths = [
     'models/embedding/pyannote_model.py',
     'models/embedding/speechbrain_model.py',
     'models/embedding/titanet_model.py',
-    'models/separation/demucs_model.py',
+    # 'models/separation/demucs_model.py',  # Removed
     'models/separation/dprnn_model.py',
-    'models/separation/ecapa_model.py',
-    'models/separation/hdemucs_model.py'
+    'models/separation/ecapa_model.py'
+    # 'models/separation/hdemucs_model.py'  # Removed
 ]
 
 for path in model_paths:
